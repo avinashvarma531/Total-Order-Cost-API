@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Semantic UI CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Home Delivery</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper{
+            text-align: center;
+        }
+        .file-upload{
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper ui container">
+        <h1 class="header">Upload the JSON file containing order details</h1>
+        <div class="ui divider"></div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="JSON-file"><b>Choose a <i>.json</i> file: </b></label>
+            <input
+                id="JSON-file"
+                type="file"
+                name="payload"
+                class="file-upload"
+                accept="application/json"
+            />
+            <br/>
+            <button type="submit" class="ui primary button">Send request</button>
+        </form>
+    </div>
+</body>
+</html>
