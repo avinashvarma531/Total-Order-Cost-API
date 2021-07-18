@@ -70,4 +70,40 @@ This django project provides an API service to calculate the total order price f
 
 4. Open the https://localhost:8000/ link in the browser and upload the json file containing order details.
 
-5. The server will respond with appropriate data.
+5. Example of JSON data to be sent as a .json file to the server.
+    ```json
+    {
+        "order_items": [
+            {
+                "name": "Cheese",
+                "quantity": 4,
+                "price": 3200
+            },
+            {
+                "name": "Pasta",
+                "quantity": 2,
+                "price": 4900
+            },
+            {
+                "name": "Chicken Wings",
+                "quantity": 4,
+                "price": 10200
+            },
+            {
+                "name": "French Fries",
+                "quantity": 2,
+                "price": 8900
+            }
+        ],
+        "distance": 48500,
+        "offer": {
+            "offer_type": "DELIVERY"
+        }
+    }
+    ````
+6. The JSON response from the server will be as follows.
+    ```json
+    {
+        "order_total": 81200
+    }
+    ```
